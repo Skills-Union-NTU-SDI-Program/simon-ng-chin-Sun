@@ -1,0 +1,107 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Project</title>
+
+    <link rel="stylesheet" href="./src/index.css">
+    <script defer src="./src/index.js"></script>
+</head>
+<body>
+    <!-- start: banner dashboard -->
+    <div style="margin: unset;">
+        <img src="./src/images/ferry-boat-east-river-with-view-manhattan-usa.jpg" height="350" width="100%">
+    </div>
+    <!-- start: banner dashboard -->
+<!-- unorder listing ul -  -->
+    <!-- start: navbar -->
+    <nav class="topnav">
+        <img src="./src/images/profile_img1.jpg" alt="ProfileImg" width="150" class="profileImg">
+        <ul>
+            <li><a href="#home" id="navHome" onclick="getNav(this.id)">Home</a></li>
+            <li><a href="#schedule" id="navTask" onclick="getNav(this.id)">Schedule</a></li>
+            <li><a href="#info" id="navInfo" onclick="getNav(this.id)">Information</a></li>
+        </ul>
+    </nav>
+    <!-- end: navbar -->
+
+    <!-- start: content -->
+    <div class="grid-container">
+        <div class="grid-item"> 
+            <!-- start: task to do -->
+            <div class="custom-box" id="myTask">
+                <div class="custom-box-header">
+                    <h2>TASK TO DO</h2>
+                    <button style="float: right;position: relative;top: -24px;right: 15px;" 
+                    onclick="openCreateTask()">Create</button>
+                </div>
+                <div class="custom-box-body">
+                    <table id="taskTable">
+                        <tr>
+                            <th>Title</th>
+                            <th>Date/Time</th>
+                            <th>Level</th>
+                            <th></th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!-- end: task to do -->
+            <!-- start: info -->
+            <div class="custom-box" id="myInfo">
+                <div class="custom-box-header">
+                    <h2>INFORMATION</h2>
+                </div>
+                <div class="custom-box-body">
+                    <table style="width: 100%;">
+                        <tr>
+                          <td>GCE A level Examination</td>
+                          <td class="text-right">
+                              <button onclick="openPDF('./src/pdf/dummy.pdf')">View</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>pdf_title1</td>
+                            <td class="text-right">
+                                <button onclick="openPDF('./src/pdf/sample2.pdf')">View</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!-- end: info -->
+        </div>
+        <div class="grid-item">
+            <div id="displayPDF">
+                <embed id="embedPDF" src="" width="100%" height="700" />
+            </div>
+            <div id="displayTaskCreate" style="display: none;">
+                <div class="custom-box">
+                    <div class="custom-box-header">
+                        <h2>Create New Task</h2>
+                    </div>
+                    <div class="custom-box-body">
+                        <form id="myTaskForm">
+                            <label for="title">Title :</label>
+                            <input type="text" placeholder="Enter Task Title"><br><br>
+
+                            <label for="date">Date :</label>
+                            <input type="datetime-local"><br><br>
+
+                            <label for="level">Level :</label>
+                            <select name="level" id="">
+                                <option value="Priority">Priority</option>
+                                <option value="Normal">Normal</option>
+                            </select><br><br>
+
+                            <button onclick="createTask()">Confirm create</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end : content -->
+</body>
+</html>
